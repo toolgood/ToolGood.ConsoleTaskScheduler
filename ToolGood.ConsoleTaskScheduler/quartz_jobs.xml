@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<job-scheduling-data xmlns="http://quartznet.sourceforge.net/JobSchedulingData"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ 				version="2.0">
+
+  <processing-directives>
+    <overwrite-existing-data>true</overwrite-existing-data>
+  </processing-directives>
+
+  <schedule>
+
+    <job>
+      <name>TimeTask</name>
+      <group>jobGroup4</group>
+      <description>自动打印时间</description>
+      <job-type>ToolGood.ConsoleTaskScheduler.Jobs.TimeJob, ConsoleTaskScheduler</job-type>
+      <durable>true</durable>
+      <recover>false</recover>
+    </job>
+
+    <trigger>
+      <cron>
+        <name>TimeTaskTrigger</name>
+        <group>triggerGroup4</group>
+        <description>自动打印时间</description>
+        <job-name>TimeTask</job-name>
+        <job-group>jobGroup4</job-group>
+        <cron-expression>0/2 * * * * ? </cron-expression>
+      </cron>
+    </trigger>
+ 
+  </schedule>
+
+</job-scheduling-data>
